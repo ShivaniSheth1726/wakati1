@@ -1,1 +1,8 @@
-# wakati1
+```
+npm install
+npm run dev
+```
+
+```
+npm run deploy
+```
