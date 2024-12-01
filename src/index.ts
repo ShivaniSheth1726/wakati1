@@ -26,4 +26,14 @@ app.get("/api/calculate", (c)  => {
   return c.json({readingTime});
 });
 
+app.post("/api/calculate", async(c)  => {
+  // return c.json({message:"Api is active",status:"ok"});
+  const {sentence,wpm} = await c.req.json();
+  if(!sentence){
+    return c.json({message:"Please provide a sentence"},400);
+  }
+  const readingTime = calculateReadingTime(sentence,Number(wpm)||defaultReadingSpeed);
+  return c.json({readingTime});
+});
+
 export default app;
