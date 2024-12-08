@@ -23,7 +23,7 @@ app.get("/api/calculate", (c)  => {
   }
   // console.log(sentence);
   const readingTime = calculateReadingTime(sentence,Number(wpm)||defaultReadingSpeed);
-  return c.json({readingTime});
+  return c.json({...readingTime});
 });
 
 app.post("/api/calculate", async(c)  => {
